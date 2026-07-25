@@ -55,34 +55,34 @@ const numericBtns = document.querySelectorAll(".numericBtn");
 function changeNum(evt) {
     switch (evt.target) {
         case btnZero:
-            console.log(num = 0);
+            console.log(firstNumber = 0);
             break;
         case btnOne:
-            console.log(num = 1);
+            console.log(firstNumber = 1);
             break;
         case btnTwo: 
-            console.log(num = 2);
+            console.log(firstNumber = 2);
             break;
         case btnThree:
-            console.log(num = 3);
+            console.log(firstNumber = 3);
             break;
         case btnFour:
-            console.log(num = 4);
+            console.log(firstNumber = 4);
             break;
         case btnFive:
-            console.log(num = 5);
+            console.log(firstNumber = 5);
             break;
         case btnSix:
-            console.log(num = 6);
+            console.log(firstNumber = 6);
             break;
         case btnSeven:
-            console.log(num = 7);
+            console.log(firstNumber = 7);
             break;
         case btnEight:
-            console.log(num = 8);
+            console.log(firstNumber = 8);
             break;
         case btnNine:
-            console.log(num = 9);
+            console.log(firstNumber = 9);
             break;
     };
 }
