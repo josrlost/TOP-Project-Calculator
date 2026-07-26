@@ -27,11 +27,13 @@ let result = 0;
 
 //New function 'operate':
 function operate(evt, operator, num1, num2) {
+    plusBtn.disabled = false;
+    minusBtn.disabled = false;
+    multiplicationBtn.disabled = false;
+    divisionBtn.disabled = false;
     if(operator === undefined) {
         firstNumber = '';
-        return calcDisplay.textContent = "PRESSED '=' TOO SOON";
-        numericBtns.disabled = true;
-        operatorBtns.disabled = true;
+        calcDisplay.textContent = "PRESSED '=' TOO SOON";
     };
     if(result === 0) {
     num1 = +storedValue;
@@ -222,24 +224,28 @@ function inputtingOperator(evt) {
             calcDisplay.textContent += operator;
             storedValue = firstNumber;
             nextNumber = 0;
+            plusBtn.disabled = true;
             break;
         case minusBtn:
             operator = '-';
             calcDisplay.textContent += operator;
             storedValue = firstNumber;
             nextNumber = 0;
+            minusBtn.disabled = true;
             break;
         case multiplicationBtn: 
             operator = 'x';
             calcDisplay.textContent += operator;
             storedValue = firstNumber;
             nextNumber = 0;
+            multiplicationBtn.disabled = true;
             break;
         case divisionBtn:
             operator = '/';
             calcDisplay.textContent += operator;
             storedValue = firstNumber;
             nextNumber = 0;
+            divisionBtn.disabled = true;
             break;
      }
 }
