@@ -1,14 +1,14 @@
 // Basic math operations functions:
 function adding(num1, num2) {
-    return Math.floor(Math.round(num1 + num2));
+    return (num1 + num2);
 }
 
 function substracting(num1, num2) {
-    return Math.floor(Math.round(num1 - num2));
+    return num1 - num2;
 }
 
 function multiplying(num1, num2) {
-    return Math.floor(Math.round(num1 * num2));
+    return num1 * num2;
 }
 
 function dividing(num1, num2) {
@@ -48,6 +48,7 @@ function operate(evt, operator, num1, num2) {
         btnSeven.disabled = true;
         btnEight.disabled = true;
         btnNine.disabled = true;
+        flaotingPoint.disabled = true;
     };
     if(result === 0) {
     num1 = +storedValue;
@@ -55,61 +56,61 @@ function operate(evt, operator, num1, num2) {
     switch(operator) {
         case '+':
         result = adding(num1, num2);
-        calcDisplay.textContent = result;
+        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case '-':
         result = substracting(num1, num2);
-        calcDisplay.textContent = result;
+        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case 'x':
         result = multiplying(num1, num2);
-        calcDisplay.textContent = result;
+        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case '/':
         result = dividing(num1, num2);
-        calcDisplay.textContent = result;
+        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
     };
 } else if(result > 0) {
-    num1 = result;
+    num1 = +result;
     num2 = +nextNumber;
     switch(operator) {
         case '+':
         result = adding(num1, num2);
-        calcDisplay.textContent = result;
+        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case '-':
         result = substracting(num1, num2);
-        calcDisplay.textContent = result;
+        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case 'x':
         result = multiplying(num1, num2);
-        calcDisplay.textContent = result;
+        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case '/':
         result = dividing(num1, num2);
-        calcDisplay.textContent = result;
+        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
@@ -139,8 +140,8 @@ const btnSix = document.querySelector("#btnSix");
 const btnSeven = document.querySelector("#btnSeven");
 const btnEight = document.querySelector("#btnEight");
 const btnNine = document.querySelector("#btnNine");
+const flaotingPoint = document.querySelector("#floatingPoint");
 const numericBtns = document.querySelectorAll(".numericBtn");
-const arrOfNumBtns1 = Array.from(numericBtns);
 const allBtns = document.querySelectorAll("button");
 
 
@@ -188,6 +189,10 @@ function changeNum1(evt) {
             firstNumber += '9';
             calcDisplay.textContent += '9';
             break;
+        case flaotingPoint:
+            firstNumber += '.';
+            calcDisplay.textContent += '.';
+            flaotingPoint.disabled = true;
     }; 
 }
 
@@ -223,6 +228,9 @@ function changeNum2(evt) {
         case btnNine:
             nextNumber += '9';
             break;
+        case flaotingPoint:
+            nextNumber += '.';
+            break;
     }; 
 }
 
@@ -236,28 +244,28 @@ function inputtingOperator(evt) {
         case plusBtn:
             operator = '+';
             calcDisplay.textContent += operator;
-            storedValue = firstNumber;
+            storedValue = +firstNumber;
             nextNumber = 0;
             plusBtn.disabled = true;
             break;
         case minusBtn:
             operator = '-';
             calcDisplay.textContent += operator;
-            storedValue = firstNumber;
+            storedValue = +firstNumber;
             nextNumber = 0;
             minusBtn.disabled = true;
             break;
         case multiplicationBtn: 
             operator = 'x';
             calcDisplay.textContent += operator;
-            storedValue = firstNumber;
+            storedValue = +firstNumber;
             nextNumber = 0;
             multiplicationBtn.disabled = true;
             break;
         case divisionBtn:
             operator = '/';
             calcDisplay.textContent += operator;
-            storedValue = firstNumber;
+            storedValue = +firstNumber;
             nextNumber = 0;
             divisionBtn.disabled = true;
             break;
@@ -288,6 +296,7 @@ clearBtn.addEventListener('click', () => {
     btnSeven.disabled = false;
     btnEight.disabled = false;
     btnNine.disabled = false;
+    flaotingPoint.disabled = false;
 });
 
 equalBtn.addEventListener('click', evt => operate(evt, operator, storedValue, nextNumber))
