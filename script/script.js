@@ -1,18 +1,18 @@
 // Basic math operations functions:
 function adding(num1, num2) {
-    num1 + num2;
+    return num1 + num2;
 }
 
 function substracting(num1, num2) {
-    num1 - num2;
+    return num1 - num2;
 }
 
 function multiplying(num1, num2) {
-    num1 * num2;
+    return num1 * num2;
 }
 
 function dividing(num1, num2) {
-    num1 / num2;
+    return num1 / num2;
 }
 
 
@@ -24,7 +24,20 @@ let nextNumber = 0;
 
 //New function 'operate':
 function operate(operator, num1, num2) {
-    adding(num1, num2);
+    switch(operator) {
+        case '+':
+        calcDisplay.textContent = adding(num1, num2);
+        break;
+        case '-':
+        calcDisplay.textContent = substracting(num1, num2);
+        break;
+        case 'x':
+        calcDisplay.textContent = multiplying(num1, num2);
+        break;
+        case '/':
+        calcDisplay.textContent = dividing(num1, num2);
+        break;
+    };
 }
 
 
@@ -36,7 +49,6 @@ const minusBtn = document.querySelector("#minusSign");
 const multiplicationBtn = document.querySelector("#multiplicationSign");
 const divisionBtn = document.querySelector("#divisionSign");
 const operatorBtns = document.querySelectorAll(".operator")
-console.log(operatorBtns);
 const equalBtn = document.querySelector("#equalSign");
 const clearBtn = document.querySelector("#clearBtn");
 const btnZero = document.querySelector("#btnZero");
@@ -51,6 +63,7 @@ const btnEight = document.querySelector("#btnEight");
 const btnNine = document.querySelector("#btnNine");
 const numericBtns = document.querySelectorAll(".numericBtn");
 const arrOfNumBtns1 = Array.from(numericBtns);
+const allBtns = document.querySelectorAll("button");
 
 
 
@@ -188,9 +201,124 @@ function inputtingOperator(evt) {
             operator = '/';
             calcDisplay.textContent = operator;
             break;
-    }; 
+     }
 }
 
 operatorBtns.forEach((button) => {
     button.addEventListener("click", inputtingOperator);
 });
+
+clearBtn.addEventListener('click', () => calcDisplay.textContent = '0');
+
+equalBtn.addEventListener('click', operate(operator, firstNumber, nextNumber))
+
+allBtns.forEach((button) => {
+    button.addEventListener('mousedown', pressingBtnEffect)
+    button.addEventListener('mouseup', releasingBtnEffect)
+});
+
+function pressingBtnEffect(evt) {
+    switch (evt.target) {
+        case plusBtn:
+            plusBtn.style.backgroundColor = "#dddddd"
+            break;
+        case minusBtn:
+            minusBtn.style.backgroundColor = "#dddddd"
+            break;
+        case multiplicationBtn: 
+            multiplicationBtn.style.backgroundColor = "#dddddd"
+            break;
+        case divisionBtn:
+            divisionBtn.style.backgroundColor = "#dddddd"
+            break;
+     case btnZero:
+            btnZero.style.backgroundColor = "#dddddd"        
+            break;
+        case btnOne:
+            btnOne.style.backgroundColor = "#dddddd"
+            break;
+        case btnTwo: 
+            btnTwo.style.backgroundColor = "#dddddd"
+            break;
+        case btnThree:
+            btnThree.style.backgroundColor = "#dddddd"
+            break;
+        case btnFour:
+            btnFour.style.backgroundColor = "#dddddd"
+            break;
+        case btnFive:
+            btnFive.style.backgroundColor = "#dddddd"
+            break;
+        case btnSix:
+            btnSix.style.backgroundColor = "#dddddd"
+            break;
+        case btnSeven:
+            btnSeven.style.backgroundColor = "#dddddd"
+            break;
+        case btnEight:
+            btnEight.style.backgroundColor = "#dddddd"
+            break;
+        case btnNine:
+            btnNine.style.backgroundColor = "#dddddd"
+            break;
+        case clearBtn:
+            clearBtn.style.backgroundColor = "#dddddd"
+            break;
+        case equalBtn:
+            equalBtn.style.backgroundColor = "#dddddd"
+            break;
+    }
+}
+
+function releasingBtnEffect(evt) {
+    switch (evt.target) {
+        case plusBtn:
+            plusBtn.style.backgroundColor = "#EFEFEF"
+            break;
+        case minusBtn:
+            minusBtn.style.backgroundColor = "#EFEFEF"
+            break;
+        case multiplicationBtn: 
+            multiplicationBtn.style.backgroundColor = "#EFEFEF"
+            break;
+        case divisionBtn:
+            divisionBtn.style.backgroundColor = "#EFEFEF"
+            break;
+     case btnZero:
+            btnZero.style.backgroundColor = "#EFEFEF"        
+            break;
+        case btnOne:
+            btnOne.style.backgroundColor = "#EFEFEF"
+            break;
+        case btnTwo: 
+            btnTwo.style.backgroundColor = "#EFEFEF"
+            break;
+        case btnThree:
+            btnThree.style.backgroundColor = "#EFEFEF"
+            break;
+        case btnFour:
+            btnFour.style.backgroundColor = "#EFEFEF"
+            break;
+        case btnFive:
+            btnFive.style.backgroundColor = "#EFEFEF"
+            break;
+        case btnSix:
+            btnSix.style.backgroundColor = "#EFEFEF"
+            break;
+        case btnSeven:
+            btnSeven.style.backgroundColor = "#EFEFEF"
+            break;
+        case btnEight:
+            btnEight.style.backgroundColor = "#EFEFEF"
+            break;
+        case btnNine:
+            btnNine.style.backgroundColor = "#EFEFEF"
+            break;
+        case clearBtn:
+            clearBtn.style.backgroundColor = "#EFEFEF"
+            break;
+        case equalBtn:
+            equalBtn.style.backgroundColor = "#EFEFEF"
+            break;
+    }
+}
