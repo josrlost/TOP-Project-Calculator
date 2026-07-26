@@ -20,10 +20,11 @@ function dividing(num1, num2) {
 let firstNumber = 0;
 let operator;
 let nextNumber = 0;
+let storedValue = 0
 
 
 //New function 'operate':
-function operate(operator, num1, num2) {
+function operate(evt, operator, num1, num2) {
     switch(operator) {
         case '+':
         calcDisplay.textContent = adding(num1, num2);
@@ -72,52 +73,53 @@ function changeNum1(evt) {
     switch (evt.target) {
         case btnZero:
             firstNumber = 0;
-            calcDisplay.textContent = firstNumber;
+            calcDisplay.textContent += '0';
             console.log(firstNumber)
             break;
         case btnOne:
             firstNumber = 1;
-            calcDisplay.textContent = firstNumber;
+            console.log(evt.detail)
+            calcDisplay.textContent += '1';
             console.log(firstNumber)
             break;
         case btnTwo: 
             firstNumber = 2;
-            calcDisplay.textContent = firstNumber;
+            calcDisplay.textContent += '2';
             console.log(firstNumber)
             break;
         case btnThree:
             firstNumber = 3;
-            calcDisplay.textContent = firstNumber;
+            calcDisplay.textContent += '3';
             console.log(firstNumber)
             break;
         case btnFour:
             firstNumber = 4;
-            calcDisplay.textContent = firstNumber;
+            calcDisplay.textContent += '4';
             console.log(firstNumber)
             break;
         case btnFive:
             firstNumber = 5;
-            calcDisplay.textContent = firstNumber;
+            calcDisplay.textContent += '5';
             console.log(firstNumber)
             break;
         case btnSix:
             firstNumber = 6;
-            calcDisplay.textContent = firstNumber;
+            calcDisplay.textContent += '6';
             console.log(firstNumber)
             break;
         case btnSeven:
             firstNumber = 7;
-            calcDisplay.textContent = firstNumber;
+            calcDisplay.textContent += '7';
             console.log(firstNumber)
             break;
         case btnEight:
             firstNumber = 8;
-            calcDisplay.textContent = firstNumber;
+            calcDisplay.textContent += '8';
             console.log(firstNumber)
             break;
         case btnNine:
             firstNumber = 9;
-            calcDisplay.textContent = firstNumber;
+            calcDisplay.textContent += '9';
             console.log(firstNumber)
             break;
     }; 
@@ -127,53 +129,43 @@ function changeNum2(evt) {
     switch (evt.target) {
         case btnZero:
             nextNumber = 0;
-            calcDisplay.textContent = nextNumber;
-            console.log(nextNumber);
+            console.log(nextNumber)
             break;
         case btnOne:
             nextNumber = 1;
-            calcDisplay.textContent = nextNumber;
-            console.log(nextNumber);
+            console.log(nextNumber)
             break;
         case btnTwo: 
             nextNumber = 2;
-            calcDisplay.textContent = nextNumber;
-            console.log(nextNumber);
+            console.log(nextNumber)
             break;
         case btnThree:
             nextNumber = 3;
-            calcDisplay.textContent = nextNumber;
-            console.log(nextNumber);
+            console.log(nextNumber)
             break;
         case btnFour:
             nextNumber = 4;
-            calcDisplay.textContent = nextNumber;
-            console.log(nextNumber);
+            console.log(nextNumber)
             break;
         case btnFive:
             nextNumber = 5;
-            calcDisplay.textContent = nextNumber;
-            console.log(nextNumber);
+            console.log(nextNumber)
             break;
         case btnSix:
             nextNumber = 6;
-            calcDisplay.textContent = nextNumber;
-            console.log(nextNumber);
+            console.log(nextNumber)
             break;
         case btnSeven:
             nextNumber = 7;
-            calcDisplay.textContent = nextNumber;
-            console.log(nextNumber);
+            console.log(nextNumber)
             break;
         case btnEight:
             nextNumber = 8;
-            calcDisplay.textContent = nextNumber;
-            console.log(nextNumber);
+            console.log(nextNumber)
             break;
         case btnNine:
             nextNumber = 9;
-            calcDisplay.textContent = nextNumber;
-            console.log(nextNumber);
+            console.log(nextNumber)
             break;
     }; 
 }
@@ -187,19 +179,27 @@ function inputtingOperator(evt) {
      switch (evt.target) {
         case plusBtn:
             operator = '+';
-            calcDisplay.textContent = operator;
+            calcDisplay.textContent += operator;
+            storedValue = firstNumber;
+            nextNumber = 0;
             break;
         case minusBtn:
             operator = '-';
-            calcDisplay.textContent = operator;
+            calcDisplay.textContent += operator;
+            storedValue = firstNumber;
+            nextNumber = 0;
             break;
         case multiplicationBtn: 
             operator = 'x';
-            calcDisplay.textContent = operator;
+            calcDisplay.textContent += operator;
+            storedValue = firstNumber;
+            nextNumber = 0;
             break;
         case divisionBtn:
             operator = '/';
-            calcDisplay.textContent = operator;
+            calcDisplay.textContent += operator;
+            storedValue = firstNumber;
+            nextNumber = 0;
             break;
      }
 }
@@ -208,9 +208,9 @@ operatorBtns.forEach((button) => {
     button.addEventListener("click", inputtingOperator);
 });
 
-clearBtn.addEventListener('click', () => calcDisplay.textContent = '0');
+clearBtn.addEventListener('click', () => calcDisplay.textContent = '');
 
-equalBtn.addEventListener('click', operate(operator, firstNumber, nextNumber))
+equalBtn.addEventListener('click', evt => operate(evt, operator, storedValue, nextNumber))
 
 allBtns.forEach((button) => {
     button.addEventListener('mousedown', pressingBtnEffect)
