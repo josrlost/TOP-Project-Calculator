@@ -160,6 +160,26 @@ const allBtns = document.querySelectorAll("button");
 
 
 function changeNum1(evt) {
+    if(calcDisplay.textContent.length >= 5) {
+        plusBtn.disabled = true;
+        minusBtn.disabled = true;
+        multiplicationBtn.disabled = true;
+        divisionBtn.disabled = true;
+        btnZero.disabled = true;
+        btnOne.disabled = true;
+        btnTwo.disabled = true;
+        btnThree.disabled = true;
+        btnFour.disabled = true;
+        btnFive.disabled = true;
+        btnSix.disabled = true;
+        btnSeven.disabled = true;
+        btnEight.disabled = true;
+        btnNine.disabled = true;
+        flaotingPoint.disabled = true;
+        backspaceBtn.disabled = true;
+        equalBtn.disabled = true;
+        return calcDisplay.textContent = 'STRING IS TOO LONG';
+    };
     switch (evt.target) {
         case btnZero:
             firstNumber += '0';
