@@ -52,6 +52,9 @@ button {
     background-color: #EFEFEF;
 }
 
+button#backSpaceBtn {
+    inline-size: 150px;
+}
 
 #btnPad {
     display: flex;

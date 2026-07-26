@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script src="script/script.js" defer></script>
     <title>TOP Project: Calculator</title>
 </head>
 <body>
+    <h1>TOP Project: Calculator</h1>
     <div id="calculator">
-        <span id="calcDisplay">000</span>
-        <div id="basicOperPad">
-            <button id="plusSign">+</button>
-            <button id="minusSign">-</button>
-            <button id="multiplicationSign">x</button>
-            <button id="divisionSign">/</button>
-            <button id="equalSign">=</button>
-            <button id="clearBtn">clear</button>
-        </div>
-        <div id="numberPad">
-            <button id="btnZero" class="numericBtn">0</button>
-            <button id="btnOne" class="numericBtn">1</button>
-            <button id="btnTwo" class="numericBtn">2</button>
-            <button id="btnThree" class="numericBtn">3</button>
-            <button id="btnFour" class="numericBtn">4</button>
-            <button id="btnFive" class="numericBtn">5</button>
-            <button id="btnSix" class="numericBtn">6</button>
-            <button id="btnSeven" class="numericBtn">7</button>
-            <button id="btnEight" class="numericBtn">8</button>
-            <button id="btnNine" class="numericBtn">9</button>
+        <span id="calcDisplay"></span>
+        <div id="btnPad">
+            <div id="basicOperPad">
+                <button id="plusSign" class="operator">+</button>
+                <button id="minusSign" class="operator">-</button>
+                <button id="multiplicationSign" class="operator">x</button>
+                <button id="divisionSign" class="operator">/</button>
+                <button id="equalSign">=</button>
+                <button id="clearBtn">clear</button>
+            </div>
+            <div id="numberPad">
+                <button id="btnZero" class="numericBtn">0</button>
+                <button id="btnOne" class="numericBtn">1</button>
+                <button id="btnTwo" class="numericBtn">2</button>
+                <button id="btnThree" class="numericBtn">3</button>
+                <button id="btnFour" class="numericBtn">4</button>
+                <button id="btnFive" class="numericBtn">5</button>
+                <button id="btnSix" class="numericBtn">6</button>
+                <button id="btnSeven" class="numericBtn">7</button>
+                <button id="btnEight" class="numericBtn">8</button>
+                <button id="btnNine" class="numericBtn">9</button>
+                <button id="floatingPoint" class="numericBtn">.</button>
+            </div>
+            <button id="backSpaceBtn">Backspace</button>
         </div>
     </div>
 </body>
