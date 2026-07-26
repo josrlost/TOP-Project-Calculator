@@ -1,14 +1,14 @@
 // Basic math operations functions:
 function adding(num1, num2) {
-    return num1 + num2;
+    return Math.floor(Math.round(num1 + num2));
 }
 
 function substracting(num1, num2) {
-    return num1 - num2;
+    return Math.floor(Math.round(num1 - num2));
 }
 
 function multiplying(num1, num2) {
-    return num1 * num2;
+    return Math.floor(Math.round(num1 * num2));
 }
 
 function dividing(num1, num2) {
@@ -27,6 +27,12 @@ let result = 0;
 
 //New function 'operate':
 function operate(evt, operator, num1, num2) {
+    if(operator === undefined) {
+        firstNumber = '';
+        return calcDisplay.textContent = "PRESSED '=' TOO SOON";
+        numericBtns.disabled = true;
+        operatorBtns.disabled = true;
+    };
     if(result === 0) {
     num1 = +storedValue;
     num2 = +nextNumber;
@@ -36,24 +42,28 @@ function operate(evt, operator, num1, num2) {
         calcDisplay.textContent = result;
         storedValue = '';
         nextNumber = '';
+        firstNumber = '';
         break;
         case '-':
         result = substracting(num1, num2);
         calcDisplay.textContent = result;
         storedValue = '';
         nextNumber = '';
+        firstNumber = '';
         break;
         case 'x':
         result = multiplying(num1, num2);
         calcDisplay.textContent = result;
         storedValue = '';
         nextNumber = '';
+        firstNumber = '';
         break;
         case '/':
         result = dividing(num1, num2);
         calcDisplay.textContent = result;
         storedValue = '';
         nextNumber = '';
+        firstNumber = '';
         break;
     };
 } else if(result > 0) {
@@ -65,24 +75,28 @@ function operate(evt, operator, num1, num2) {
         calcDisplay.textContent = result;
         storedValue = '';
         nextNumber = '';
+        firstNumber = '';
         break;
         case '-':
         result = substracting(num1, num2);
         calcDisplay.textContent = result;
         storedValue = '';
         nextNumber = '';
+        firstNumber = '';
         break;
         case 'x':
         result = multiplying(num1, num2);
         calcDisplay.textContent = result;
         storedValue = '';
         nextNumber = '';
+        firstNumber = '';
         break;
         case '/':
         result = dividing(num1, num2);
         calcDisplay.textContent = result;
         storedValue = '';
         nextNumber = '';
+        firstNumber = '';
         break;
     };
 }
