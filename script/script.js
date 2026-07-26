@@ -34,6 +34,20 @@ function operate(evt, operator, num1, num2) {
     if(operator === undefined) {
         firstNumber = '';
         calcDisplay.textContent = "PRESSED '=' TOO SOON";
+        plusBtn.disabled = true;
+        minusBtn.disabled = true;
+        multiplicationBtn.disabled = true;
+        divisionBtn.disabled = true;
+        btnZero.disabled = true;
+        btnOne.disabled = true;
+        btnTwo.disabled = true;
+        btnThree.disabled = true;
+        btnFour.disabled = true;
+        btnFive.disabled = true;
+        btnSix.disabled = true;
+        btnSeven.disabled = true;
+        btnEight.disabled = true;
+        btnNine.disabled = true;
     };
     if(result === 0) {
     num1 = +storedValue;
@@ -260,6 +274,20 @@ clearBtn.addEventListener('click', () => {
     nextNumber = '';
     storedValue = ''; 
     result = 0;
+    plusBtn.disabled = false;
+    minusBtn.disabled = false;
+    multiplicationBtn.disabled = false;
+    divisionBtn.disabled = false;
+    btnZero.disabled = false;
+    btnOne.disabled = false;
+    btnTwo.disabled = false;
+    btnThree.disabled = false;
+    btnFour.disabled = false;
+    btnFive.disabled = false;
+    btnSix.disabled = false;
+    btnSeven.disabled = false;
+    btnEight.disabled = false;
+    btnNine.disabled = false;
 });
 
 equalBtn.addEventListener('click', evt => operate(evt, operator, storedValue, nextNumber))
