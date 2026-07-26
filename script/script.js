@@ -160,7 +160,7 @@ const allBtns = document.querySelectorAll("button");
 
 
 function changeNum1(evt) {
-    if(calcDisplay.textContent.length >= 5) {
+    if(calcDisplay.textContent.length >= 7) {
         plusBtn.disabled = true;
         minusBtn.disabled = true;
         multiplicationBtn.disabled = true;
