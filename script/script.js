@@ -37,7 +37,6 @@ function operate(evt, operator, num1, num2) {
     divisionBtn.disabled = false;
     if(operator === undefined) {
         firstNumber = '';
-        calcDisplay.textContent = "PRESSED '=' TOO SOON";
         plusBtn.disabled = true;
         minusBtn.disabled = true;
         multiplicationBtn.disabled = true;
@@ -53,6 +52,7 @@ function operate(evt, operator, num1, num2) {
         btnEight.disabled = true;
         btnNine.disabled = true;
         flaotingPoint.disabled = true;
+        return calcDisplay.textContent = "PRESSED '=' TOO SOON";
     };
     if(result === 0) {
     num1 = +storedValue;
