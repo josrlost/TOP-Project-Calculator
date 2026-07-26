@@ -1,18 +1,22 @@
 // Basic math operations functions:
 function adding(num1, num2) {
+    calcDisplay.textContent = num1 + num2;
     return (num1 + num2);
 }
 
 function substracting(num1, num2) {
+    calcDisplay.textContent = num1 - num2;
     return num1 - num2;
 }
 
 function multiplying(num1, num2) {
+    calcDisplay.textContent = num1 * num2;
     return num1 * num2;
 }
 
 function dividing(num1, num2) {
     if(num2 === 0) {return calcDisplay.textContent = 'DIVIDE BY 0 ERROR'};
+    calcDisplay.textContent = num1 / num2;
     return Math.floor(Math.round(num1 / num2));
 }
 
@@ -56,28 +60,24 @@ function operate(evt, operator, num1, num2) {
     switch(operator) {
         case '+':
         result = adding(num1, num2);
-        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case '-':
         result = substracting(num1, num2);
-        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case 'x':
         result = multiplying(num1, num2);
-        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case '/':
         result = dividing(num1, num2);
-        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
@@ -89,28 +89,24 @@ function operate(evt, operator, num1, num2) {
     switch(operator) {
         case '+':
         result = adding(num1, num2);
-        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case '-':
         result = substracting(num1, num2);
-        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case 'x':
         result = multiplying(num1, num2);
-        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
         break;
         case '/':
         result = dividing(num1, num2);
-        calcDisplay.textContent = +result;
         storedValue = '';
         nextNumber = '';
         firstNumber = '';
