@@ -445,6 +445,7 @@ function releasingBtnEffect(evt) {
 
 console.log(calcDisplay.textContent);
 
+
 backspaceBtn.addEventListener("click", () => {
-    calcDisplay.textContent.slice(0, 5);
+    calcDisplay.textContent =  calcDisplay.textContent.slice(0, -1);
 });
