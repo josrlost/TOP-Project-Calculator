@@ -130,7 +130,7 @@ function operate(evt, operator, num1, num2) {
         firstNumber = '';
         break;
     };
-}
+} 
 }
 
 
@@ -299,6 +299,7 @@ clearBtn.addEventListener('click', () => {
     nextNumber = '';
     storedValue = ''; 
     result = 0;
+    operator = undefined;
     plusBtn.disabled = false;
     minusBtn.disabled = false;
     multiplicationBtn.disabled = false;
@@ -442,9 +443,6 @@ function releasingBtnEffect(evt) {
             break;
     }
 }
-
-console.log(calcDisplay.textContent);
-
 
 backspaceBtn.addEventListener("click", () => {
     calcDisplay.textContent =  calcDisplay.textContent.slice(0, -1);
