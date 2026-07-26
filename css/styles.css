@@ -1,18 +1,50 @@
 body {
     box-sizing: border-box;
-    background-color: rgb(243, 234, 241);
+    background-color: rgb(233, 249, 221);
 }
 
 #calculator {
     background-color: rgba(129, 131, 135, 0.777);
     border: 4px solid rgba(72, 72, 72, 0.777);
-    border-radius: 2%;
+    border-radius: 4%;
     block-size: 200px;
     inline-size: 200px;
+    box-shadow: 4px 6px 3px rgb(37, 36, 36);
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
     align-items: center;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+span#calcDisplay {
+    margin-bottom: 40px;
+    margin-top: -8px;
+    
+  
+}
+
+button {
+    border:2px solid rgba(232, 228, 228, 0.777);
+}
+
+#btnPad {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5%;
+    justify-content: center;
+}
+
+#basicOperPad {
+    display: flex;
+    gap: 2px;
+}
+
+#numberPad {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2px;
+    justify-content: center;
+
 }
