@@ -12,7 +12,8 @@ function multiplying(num1, num2) {
 }
 
 function dividing(num1, num2) {
-    return num1 / num2;
+    if(num2 === 0) {return calcDisplay.textContent = 'DIVIDE BY 0 ERROR'};
+    return Math.floor(Math.round(num1 / num2));
 }
 
 
@@ -21,26 +22,70 @@ let firstNumber = '';
 let operator;
 let nextNumber = '';
 let storedValue = 0
+let result = 0;
 
 
 //New function 'operate':
 function operate(evt, operator, num1, num2) {
+    if(result === 0) {
     num1 = +storedValue;
     num2 = +nextNumber;
     switch(operator) {
         case '+':
-        calcDisplay.textContent = adding(num1, num2);
+        result = adding(num1, num2);
+        calcDisplay.textContent = result;
+        storedValue = '';
+        nextNumber = '';
         break;
         case '-':
-        calcDisplay.textContent = substracting(num1, num2);
+        result = substracting(num1, num2);
+        calcDisplay.textContent = result;
+        storedValue = '';
+        nextNumber = '';
         break;
         case 'x':
-        calcDisplay.textContent = multiplying(num1, num2);
+        result = multiplying(num1, num2);
+        calcDisplay.textContent = result;
+        storedValue = '';
+        nextNumber = '';
         break;
         case '/':
-        calcDisplay.textContent = dividing(num1, num2);
+        result = dividing(num1, num2);
+        calcDisplay.textContent = result;
+        storedValue = '';
+        nextNumber = '';
         break;
     };
+} else if(result > 0) {
+    num1 = result;
+    num2 = +nextNumber;
+    switch(operator) {
+        case '+':
+        result = adding(num1, num2);
+        calcDisplay.textContent = result;
+        storedValue = '';
+        nextNumber = '';
+        break;
+        case '-':
+        result = substracting(num1, num2);
+        calcDisplay.textContent = result;
+        storedValue = '';
+        nextNumber = '';
+        break;
+        case 'x':
+        result = multiplying(num1, num2);
+        calcDisplay.textContent = result;
+        storedValue = '';
+        nextNumber = '';
+        break;
+        case '/':
+        result = dividing(num1, num2);
+        calcDisplay.textContent = result;
+        storedValue = '';
+        nextNumber = '';
+        break;
+    };
+}
 }
 
 
@@ -76,53 +121,42 @@ function changeNum1(evt) {
         case btnZero:
             firstNumber += '0';
             calcDisplay.textContent += '0';
-            console.log(firstNumber)
             break;
         case btnOne:
-            firstNumber += '1';
-            console.log(evt.detail)
+            firstNumber += '1';  
             calcDisplay.textContent += '1';
-            console.log(firstNumber)
             break;
         case btnTwo: 
             firstNumber += '2';
             calcDisplay.textContent += '2';
-            console.log(firstNumber)
             break;
         case btnThree:
             firstNumber += '3';
             calcDisplay.textContent += '3';
-            console.log(firstNumber)
             break;
         case btnFour:
             firstNumber += '4';
             calcDisplay.textContent += '4';
-            console.log(firstNumber)
             break;
         case btnFive:
             firstNumber += '5';
             calcDisplay.textContent += '5';
-            console.log(firstNumber)
             break;
         case btnSix:
             firstNumber += '6';
             calcDisplay.textContent += '6';
-            console.log(firstNumber)
             break;
         case btnSeven:
             firstNumber += '7';
             calcDisplay.textContent += '7';
-            console.log(firstNumber)
             break;
         case btnEight:
             firstNumber += '8';
             calcDisplay.textContent += '8';
-            console.log(firstNumber)
             break;
         case btnNine:
             firstNumber += '9';
             calcDisplay.textContent += '9';
-            console.log(firstNumber)
             break;
     }; 
 }
@@ -131,43 +165,33 @@ function changeNum2(evt) {
     switch (evt.target) {
         case btnZero:
             nextNumber += '0';
-            console.log(nextNumber)
             break;
         case btnOne:
             nextNumber += '1';
-            console.log(nextNumber)
             break;
         case btnTwo: 
             nextNumber += '2';
-            console.log(nextNumber)
             break;
         case btnThree:
             nextNumber += '3';
-            console.log(nextNumber)
             break;
         case btnFour:
             nextNumber += '4';
-            console.log(nextNumber)
             break;
         case btnFive:
             nextNumber += '5';
-            console.log(nextNumber)
             break;
         case btnSix:
             nextNumber += '6';
-            console.log(nextNumber)
             break;
         case btnSeven:
             nextNumber += '7';
-            console.log(nextNumber)
             break;
         case btnEight:
             nextNumber += '8';
-            console.log(nextNumber)
             break;
         case btnNine:
             nextNumber += '9';
-            console.log(nextNumber)
             break;
     }; 
 }
@@ -210,7 +234,13 @@ operatorBtns.forEach((button) => {
     button.addEventListener("click", inputtingOperator);
 });
 
-clearBtn.addEventListener('click', () => calcDisplay.textContent = '');
+clearBtn.addEventListener('click', () => {
+    calcDisplay.textContent = '';
+    firstNumber = '';
+    nextNumber = '';
+    storedValue = ''; 
+    result = 0;
+});
 
 equalBtn.addEventListener('click', evt => operate(evt, operator, storedValue, nextNumber))
 
