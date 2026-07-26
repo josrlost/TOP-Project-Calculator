@@ -17,14 +17,16 @@ function dividing(num1, num2) {
 
 
 //Variables for each part of the basic math operation
-let firstNumber = 0;
+let firstNumber = '';
 let operator;
-let nextNumber = 0;
+let nextNumber = '';
 let storedValue = 0
 
 
 //New function 'operate':
 function operate(evt, operator, num1, num2) {
+    num1 = +storedValue;
+    num2 = +nextNumber;
     switch(operator) {
         case '+':
         calcDisplay.textContent = adding(num1, num2);
@@ -72,53 +74,53 @@ const allBtns = document.querySelectorAll("button");
 function changeNum1(evt) {
     switch (evt.target) {
         case btnZero:
-            firstNumber = 0;
+            firstNumber += '0';
             calcDisplay.textContent += '0';
             console.log(firstNumber)
             break;
         case btnOne:
-            firstNumber = 1;
+            firstNumber += '1';
             console.log(evt.detail)
             calcDisplay.textContent += '1';
             console.log(firstNumber)
             break;
         case btnTwo: 
-            firstNumber = 2;
+            firstNumber += '2';
             calcDisplay.textContent += '2';
             console.log(firstNumber)
             break;
         case btnThree:
-            firstNumber = 3;
+            firstNumber += '3';
             calcDisplay.textContent += '3';
             console.log(firstNumber)
             break;
         case btnFour:
-            firstNumber = 4;
+            firstNumber += '4';
             calcDisplay.textContent += '4';
             console.log(firstNumber)
             break;
         case btnFive:
-            firstNumber = 5;
+            firstNumber += '5';
             calcDisplay.textContent += '5';
             console.log(firstNumber)
             break;
         case btnSix:
-            firstNumber = 6;
+            firstNumber += '6';
             calcDisplay.textContent += '6';
             console.log(firstNumber)
             break;
         case btnSeven:
-            firstNumber = 7;
+            firstNumber += '7';
             calcDisplay.textContent += '7';
             console.log(firstNumber)
             break;
         case btnEight:
-            firstNumber = 8;
+            firstNumber += '8';
             calcDisplay.textContent += '8';
             console.log(firstNumber)
             break;
         case btnNine:
-            firstNumber = 9;
+            firstNumber += '9';
             calcDisplay.textContent += '9';
             console.log(firstNumber)
             break;
@@ -128,43 +130,43 @@ function changeNum1(evt) {
 function changeNum2(evt) {
     switch (evt.target) {
         case btnZero:
-            nextNumber = 0;
+            nextNumber += '0';
             console.log(nextNumber)
             break;
         case btnOne:
-            nextNumber = 1;
+            nextNumber += '1';
             console.log(nextNumber)
             break;
         case btnTwo: 
-            nextNumber = 2;
+            nextNumber += '2';
             console.log(nextNumber)
             break;
         case btnThree:
-            nextNumber = 3;
+            nextNumber += '3';
             console.log(nextNumber)
             break;
         case btnFour:
-            nextNumber = 4;
+            nextNumber += '4';
             console.log(nextNumber)
             break;
         case btnFive:
-            nextNumber = 5;
+            nextNumber += '5';
             console.log(nextNumber)
             break;
         case btnSix:
-            nextNumber = 6;
+            nextNumber += '6';
             console.log(nextNumber)
             break;
         case btnSeven:
-            nextNumber = 7;
+            nextNumber += '7';
             console.log(nextNumber)
             break;
         case btnEight:
-            nextNumber = 8;
+            nextNumber += '8';
             console.log(nextNumber)
             break;
         case btnNine:
-            nextNumber = 9;
+            nextNumber += '9';
             console.log(nextNumber)
             break;
     }; 
