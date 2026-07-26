@@ -52,8 +52,8 @@ button {
     background-color: #EFEFEF;
 }
 
-button#backSpaceBtn {
-    inline-size: 150px;
+button#backspaceBtn {
+    inline-size: 100px;
 }
 
 #btnPad {

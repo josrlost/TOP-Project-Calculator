@@ -1,4 +1,4 @@
-// Basic math operations functions:
+
 function adding(num1, num2) {
     calcDisplay.textContent = num1 + num2;
     return (num1 + num2);
@@ -15,13 +15,30 @@ function multiplying(num1, num2) {
 }
 
 function dividing(num1, num2) {
-    if(num2 === 0) {return calcDisplay.textContent = 'DIVIDE BY 0 ERROR'};
+    if(num2 === 0) {
+    plusBtn.disabled = true;
+    minusBtn.disabled = true;
+    multiplicationBtn.disabled = true;
+    divisionBtn.disabled = true;
+    btnZero.disabled = true;
+    btnOne.disabled = true;
+    btnTwo.disabled = true;
+    btnThree.disabled = true;
+    btnFour.disabled = true;
+    btnFive.disabled = true;
+    btnSix.disabled = true;
+    btnSeven.disabled = true;
+    btnEight.disabled = true;
+    btnNine.disabled = true;
+    flaotingPoint.disabled = true;
+    backspaceBtn.disabled = true;
+    equalBtn.disabled = true;
+    return calcDisplay.textContent = "DIVIDING BY '0'? SERIOUSLY?!"};
     calcDisplay.textContent = num1 / num2;
     return Math.floor(Math.round(num1 / num2));
 }
 
 
-//Variables for each part of the basic math operation
 let firstNumber = '';
 let operator;
 let nextNumber = '';
@@ -29,7 +46,6 @@ let storedValue = 0
 let result = 0;
 
 
-//New function 'operate':
 function operate(evt, operator, num1, num2) {
     plusBtn.disabled = false;
     minusBtn.disabled = false;
@@ -52,6 +68,8 @@ function operate(evt, operator, num1, num2) {
         btnEight.disabled = true;
         btnNine.disabled = true;
         flaotingPoint.disabled = true;
+        backspaceBtn.disabled = true;
+        equalBtn.disabled = true;
         return calcDisplay.textContent = "PRESSED '=' TOO SOON";
     };
     if(result === 0) {
@@ -116,7 +134,6 @@ function operate(evt, operator, num1, num2) {
 }
 
 
-//Variables for basic DOM nodes
 const calculator = document.querySelector("#calculator");
 const calcDisplay = document.querySelector("#calcDisplay");
 const plusBtn = document.querySelector("#plusSign");
@@ -138,11 +155,10 @@ const btnEight = document.querySelector("#btnEight");
 const btnNine = document.querySelector("#btnNine");
 const flaotingPoint = document.querySelector("#floatingPoint");
 const numericBtns = document.querySelectorAll(".numericBtn");
+const backspaceBtn =  document.querySelector("#backspaceBtn");
 const allBtns = document.querySelectorAll("button");
 
 
-
-//Functions that update number variables with btn pressin:
 function changeNum1(evt) {
     switch (evt.target) {
         case btnZero:
@@ -235,6 +251,7 @@ numericBtns.forEach((button) => {
     button.addEventListener("click", changeNum2);
 });
 
+
 function inputtingOperator(evt) {
      switch (evt.target) {
         case plusBtn:
@@ -243,6 +260,7 @@ function inputtingOperator(evt) {
             storedValue = +firstNumber;
             nextNumber = 0;
             plusBtn.disabled = true;
+            flaotingPoint.disabled = false;
             break;
         case minusBtn:
             operator = '-';
@@ -250,6 +268,7 @@ function inputtingOperator(evt) {
             storedValue = +firstNumber;
             nextNumber = 0;
             minusBtn.disabled = true;
+            flaotingPoint.disabled = false;
             break;
         case multiplicationBtn: 
             operator = 'x';
@@ -257,6 +276,7 @@ function inputtingOperator(evt) {
             storedValue = +firstNumber;
             nextNumber = 0;
             multiplicationBtn.disabled = true;
+            flaotingPoint.disabled = false;
             break;
         case divisionBtn:
             operator = '/';
@@ -264,6 +284,7 @@ function inputtingOperator(evt) {
             storedValue = +firstNumber;
             nextNumber = 0;
             divisionBtn.disabled = true;
+            flaotingPoint.disabled = false;
             break;
      }
 }
@@ -293,6 +314,8 @@ clearBtn.addEventListener('click', () => {
     btnEight.disabled = false;
     btnNine.disabled = false;
     flaotingPoint.disabled = false;
+    backspaceBtn.disabled = false;
+    equalBtn.disabled = false;
 });
 
 equalBtn.addEventListener('click', evt => operate(evt, operator, storedValue, nextNumber))
@@ -352,6 +375,12 @@ function pressingBtnEffect(evt) {
         case equalBtn:
             equalBtn.style.backgroundColor = "#dddddd"
             break;
+        case flaotingPoint:
+            flaotingPoint.style.backgroundColor = "#dddddd"
+            break;
+        case backspaceBtn:
+            backspaceBtn.style.backgroundColor = "#dddddd"
+            break;
     }
 }
 
@@ -405,5 +434,17 @@ function releasingBtnEffect(evt) {
         case equalBtn:
             equalBtn.style.backgroundColor = "#EFEFEF"
             break;
+        case flaotingPoint:
+            flaotingPoint.style.backgroundColor = "#EFEFEF"
+            break;
+        case backspaceBtn:
+            backspaceBtn.style.backgroundColor = "#EFEFEF"
+            break;
     }
 }
+
+console.log(calcDisplay.textContent);
+
+backspaceBtn.addEventListener("click", () => {
+    calcDisplay.textContent.slice(0, 5);
+});
