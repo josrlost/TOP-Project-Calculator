@@ -51,6 +51,21 @@ function operate(evt, operator, num1, num2) {
     minusBtn.disabled = false;
     multiplicationBtn.disabled = false;
     divisionBtn.disabled = false;
+    if(calcDisplay.textContent !== firstNumber || calcDisplay.textContent !== operator) {
+        btnZero.disabled = true;
+        btnOne.disabled = true;
+        btnTwo.disabled = true;
+        btnThree.disabled = true;
+        btnFour.disabled = true;
+        btnFive.disabled = true;
+        btnSix.disabled = true;
+        btnSeven.disabled = true;
+        btnEight.disabled = true;
+        btnNine.disabled = true;
+        flaotingPoint.disabled = true;
+        backspaceBtn.disabled = true;
+        equalBtn.disabled = true;
+    };
     if(operator === undefined) {
         firstNumber = '';
         plusBtn.disabled = true;
@@ -273,6 +288,19 @@ numericBtns.forEach((button) => {
 
 
 function inputtingOperator(evt) {
+    btnZero.disabled = false;
+    btnOne.disabled = false;
+    btnTwo.disabled = false;
+    btnThree.disabled = false;
+    btnFour.disabled = false;
+    btnFive.disabled = false;
+    btnSix.disabled = false;
+    btnSeven.disabled = false;
+    btnEight.disabled = false;
+    btnNine.disabled = false;
+    flaotingPoint.disabled = false;
+    backspaceBtn.disabled = false;
+    equalBtn.disabled = false;
      switch (evt.target) {
         case plusBtn:
             operator = '+';
