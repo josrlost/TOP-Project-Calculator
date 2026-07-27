@@ -276,35 +276,35 @@ function inputtingOperator(evt) {
      switch (evt.target) {
         case plusBtn:
             operator = '+';
-            calcDisplay.textContent += operator;
             storedValue = +firstNumber;
             nextNumber = 0;
             plusBtn.disabled = true;
             flaotingPoint.disabled = false;
+            calcDisplay.textContent = operator;
             break;
         case minusBtn:
             operator = '-';
-            calcDisplay.textContent += operator;
             storedValue = +firstNumber;
             nextNumber = 0;
             minusBtn.disabled = true;
             flaotingPoint.disabled = false;
+            calcDisplay.textContent = operator;
             break;
         case multiplicationBtn: 
             operator = 'x';
-            calcDisplay.textContent += operator;
             storedValue = +firstNumber;
             nextNumber = 0;
             multiplicationBtn.disabled = true;
             flaotingPoint.disabled = false;
+            calcDisplay.textContent = operator;
             break;
         case divisionBtn:
             operator = '/';
-            calcDisplay.textContent += operator;
             storedValue = +firstNumber;
             nextNumber = 0;
             divisionBtn.disabled = true;
             flaotingPoint.disabled = false;
+            calcDisplay.textContent = operator;
             break;
      }
 }
